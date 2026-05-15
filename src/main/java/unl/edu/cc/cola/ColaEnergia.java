@@ -1,5 +1,7 @@
 package unl.edu.cc.cola;
-
+/*
+Author: Cristian Guaman (Ego_Code)
+ */
 public class ColaEnergia {
     private Nodo frente; // El que sale
     private Nodo fin;    // El que entra
@@ -22,6 +24,7 @@ public class ColaEnergia {
             frente = nuevo;
         }
         contador++;
+        System.out.println("Peticion [" + p.idDispositivo + "] encolada");
     }
 
     // Atender al inicio (Front)
@@ -33,4 +36,20 @@ public class ColaEnergia {
         contador--;
         return p;
     }
+
+    /*
+    Author: Leonel Lima (LMess131)
+     */
+
+    // Reto Green Computing: si la cola está vacía, duerme el hilo
+    // para no consumir ciclos de CPU innecesarios.
+    public boolean verificarYEsperar() throws InterruptedException {
+        if (frente == null) {
+            Thread.sleep(500);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean estaVacia() { return frente == null; }
 }
